@@ -18,15 +18,27 @@ function Icon({ imgLink, dispName, compoName }) {
   const openModal = () => {
     if (DynamicComponent) {
       setShowModal(
-        <div className='test'>
-          <div className='content'>
-            <div className="header">
-              <button type="button" className="close" onClick={closeModal}>&times;</button>
-              <h4 className="modal-title">Settings</h4>
+
+        
+          <div className='fenetre-content'>
+            
+            <div className='fenetre-header'>
+              
+              <div className='fenetre-header-bouton btn-autre'>
+                <img src="icons/fullscreen.svg" alt="reduit" />
+              </div>
+
+              <div className='fenetre-header-bouton' id='close'>
+                <img src="icons/close.svg" alt="croix" onClick={closeModal}/>
+              </div>
+              
             </div>
+
+
             <DynamicComponent />
           </div>
-        </div>
+        
+
       );
     }
   };

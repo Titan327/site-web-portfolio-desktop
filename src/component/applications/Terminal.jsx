@@ -5,9 +5,9 @@ function Terminal() {
     
   
     return (
-      <div>
+      <div className='contnent'>
 
-        test
+        <p>tristan@intel-8086></p>
 
       </div>
     );
