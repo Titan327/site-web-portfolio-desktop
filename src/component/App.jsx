@@ -22,7 +22,7 @@ function App() {
   //<Icon imgLink = {"icons/terminal.svg"} name={"Terminal"}/>
 
   return (
-    <div className="container">
+    <div className="container" style={{userSelect:'none'}}>
 
       <div className="row">
 
@@ -31,6 +31,8 @@ function App() {
         </div>
 
         <div className="col-sm">
+        
+        <Icon imgLink = {"icons/pdf.svg"} dispName={"CV"} compoName={"CV"}/>
           
         </div>
 
