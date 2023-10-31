@@ -7,6 +7,14 @@ function Terminal() {
     return (
       <div className='contnent'>
 
+        <embed
+        
+        src="pdf/CV_Tristan_TOURBIER.pdf"
+        type="application/pdf"
+        width="100%"
+        height="100%"
+
+        />
         
 
       </div>

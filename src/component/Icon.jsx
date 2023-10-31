@@ -20,7 +20,7 @@ function Icon({ imgLink, dispName, compoName }) {
 
   return (
     <div className='icon-global'>
-      <img src={imgLink} alt="test" className='icon-image' onClick={openModal} />
+      <img src={imgLink} alt="test" className='icon-image' onClick={openModal} style={{width:"75px"}} />
       <p className='text'>{dispName}</p>
       {showModal && (<Window closeModal = {closeModal} compoName={compoName} />)}
     </div>

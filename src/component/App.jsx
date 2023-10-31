@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import '../css/App.css';
 import Icon from './Icon';
 
+const storage = createContext('test');
 
 function App() {
 
+  
   
   var body = document.body;
   body.style.backgroundImage = 'url("Wallpaper.webp")';
@@ -14,51 +16,47 @@ function App() {
   body.style.backgroundAttachment = 'center top';
   body.style.height = '100vh';
   body.style.margin = '0';
-  //body.style.minWidth = '100px';
+
   
 
-
-
-  //<Icon imgLink = {"icons/terminal.svg"} name={"Terminal"}/>
-
   return (
-    <div className="container" style={{userSelect:'none'}}>
+      <div className="container" style={{userSelect:'none'}}>
 
-      <div className="row">
+        <div className="row">
 
-        <div className="col-sm">
-          <Icon imgLink = {"icons/terminal.svg"} dispName={"Terminal"} compoName={"Terminal"}/>
-        </div>
+          <div className="col-sm">
+            <Icon imgLink = {"icons/terminal.svg"} dispName={"Terminal"} compoName={"Terminal"}/>
+          </div>
 
-        <div className="col-sm">
-        
-        <Icon imgLink = {"icons/pdf.svg"} dispName={"CV"} compoName={"CV"}/>
-          
-        </div>
+          <div className="col-sm">
+            <Icon imgLink={"icons/pdf.svg"} dispName={"CV"} compoName={"CV"}/>
+          </div>
 
-        <div className="col-sm">
-          
-        </div>
+          <div className="col-sm">
 
-        <div className="col-sm">
-          
-        </div>
+          <Icon imgLink={"icons/pdf.svg"} dispName={"Test"} compoName={"Notepad"}/>
+            
+          </div>
 
-        <div className="col-sm">
-          
-        </div>
+          <div className="col-sm">
+            
+          </div>
 
-        <div className="col-sm">
-          
-        </div>
+          <div className="col-sm">
+            
+          </div>
 
-        <div className="col-sm">
-          
+          <div className="col-sm">
+            
+          </div>
+
+          <div className="col-sm">
+            
+          </div>
+
         </div>
 
       </div>
-
-    </div>
   );
 }
 

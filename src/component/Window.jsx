@@ -8,9 +8,11 @@ function Window({ closeModal,compoName }) {
   const [position, setPosition] = useState({ x: 100, y: 100 });
   const [isClicked, setIsClicked] = useState(false);
   const [initialMousePosition, setInitialMousePosition] = useState({ x: 0, y: 0 });
-
-
+  const [resizeLogo, setresizeLogo] = useState('');
+  const [sizeWindow,setSizeWindow] = useState({width:500,length:500});
   const [dynamicComponent, setDynamicComponent] = useState(null);
+  const [isFullScreen,setIsFullScreen] = useState(false);
+  const [canMove,setCanMove] = useState(true);
 
   useEffect(() => {
 
@@ -25,7 +27,7 @@ function Window({ closeModal,compoName }) {
   useEffect(() => {
     const handleMouseMove = (e) => {
     
-      if (isClicked) {
+      if (isClicked && canMove) {
         setPosition({
           x: position.x + (e.clientX - initialMousePosition.x),
           y: position.y + (e.clientY - initialMousePosition.y),
@@ -52,19 +54,31 @@ function Window({ closeModal,compoName }) {
     
   };
 
-  const fullSize = () => {
-
+  const changeSize = () => {
+    if(!isFullScreen){
+      setSizeWindow({width:window.innerWidth,length:window.innerHeight});
+      setPosition({x:0,y:0});
+      setIsFullScreen(true);
+      setCanMove(false);
+    }else{
+      setSizeWindow({width:600,length:600});
+      setPosition({x:100,y:100});
+      setIsFullScreen(false);
+      setCanMove(true);
+    }
+    
   }
 
   return (
     <div
       className='fenetre'
       style={{
+        position:'fixed',
         top: position.y + 'px',
         left: position.x + 'px',
         zIndex: '100',
-        width: '600px',
-        height: '400px',
+        width: sizeWindow.width + 'px',
+        height: sizeWindow.length + 'px',
     }}>
 
       <div
@@ -72,7 +86,7 @@ function Window({ closeModal,compoName }) {
         onMouseDown={handleMouseDown}
       >
         <div className='fenetre-header-bouton btn-autre'>
-          <img src="icons/fullscreen.svg" alt="reduit" onClick={fullSize} />
+          <img src="icons/fullscreen.svg" alt="reduit" onClick={changeSize} />
         </div>
         <div className='fenetre-header-bouton' id='close'>
           <img src="icons/close.svg" alt="croix" onClick={closeModal} />
